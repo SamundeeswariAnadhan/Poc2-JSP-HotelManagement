@@ -2,7 +2,9 @@ package com.HotelRegistration;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +49,22 @@ public class Loginservlet extends HttpServlet {
 			response.getWriter().print(result);
 			System.out.print("Result: "+result);
 			if(result.equals("Success")) {
-				response.sendRedirect(request.getContextPath()+"/Home.jsp");
+				
+				HomeSqlconn cdata=new HomeSqlconn();
+				//System.out.println("Inside doPost HomeServlet!!");
+				try {
+					ArrayList<Homeinfo> results=cdata.fetchroomlist();
+					//System.out.println("ArrayList---\n SNO: " + results.get(0).getSno() + "Room Number: "+ results.get(0).getRoom_Number() + "Room Name: " + results.get(0).getRoom_Name());
+					 request.setAttribute("availability", results);
+			            RequestDispatcher view = request.getRequestDispatcher("/Home.jsp");
+			            view.forward(request, response);
+				
+			} 
+				catch (ClassNotFoundException | SQLException e) {
+				
+				e.printStackTrace();
+			}
+			//	response.sendRedirect(request.getContextPath()+"/Home.jsp");
 			}
 			else {
 				response.sendRedirect(request.getContextPath()+"/error.jsp");

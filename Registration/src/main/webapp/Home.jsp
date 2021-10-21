@@ -25,7 +25,7 @@
                 <th>Room Number</th>
                 <th>Room Name</th>
             </tr>
-        </thead>
+       </thead>
         <tbody>
              <% for(int i = 0; i < homeInfo.size(); i++) {
             	Homeinfo Hinfo = new Homeinfo();
@@ -42,7 +42,7 @@
             <%
             }
             %> 
-        </tbody>
+         </tbody>
     </table>
   
     

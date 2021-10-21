@@ -48,9 +48,10 @@ public class HomeSqlconn {
 			home.setRoom_Number(rs.getString("Room_Number"));
 			home.setRoom_Name(rs.getString("Room_Name"));
 			hmlist.add(home);
-			System.out.println("home.SNO = " +home.getSno());
-			System.out.println("home.Room_number = " +home.getRoom_Number());
-			System.out.println("home.Room_name =" +home.getRoom_Name());
+			
+//			System.out.println("home.SNO = " +home.getSno());
+//			System.out.println("home.Room_number = " +home.getRoom_Number());
+//			System.out.println("home.Room_name =" +home.getRoom_Name());
 		}
 		
 		return hmlist;

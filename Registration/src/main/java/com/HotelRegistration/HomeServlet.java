@@ -39,20 +39,7 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HomeSqlconn cdata=new HomeSqlconn();
-		System.out.println("Inside doPost HomeServlet!!");
-		try {
-			ArrayList<Homeinfo> result=cdata.fetchroomlist();
-			System.out.println("ArrayList---\n SNO: " + result.get(0).getSno() + "Room Number: "+ result.get(0).getRoom_Number() + "Room Name: " + result.get(0).getRoom_Name());
-			 request.setAttribute("availability", result);
-	            RequestDispatcher view = request.getRequestDispatcher("/Home.jsp");
-	            view.forward(request, response);
 		
-	} 
-		catch (ClassNotFoundException | SQLException e) {
-		
-		e.printStackTrace();
-	}
 		doGet(request, response);
 	}
 }
